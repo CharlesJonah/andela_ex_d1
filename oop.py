@@ -1,33 +1,29 @@
-class Car(object):
-  
-  def __init__(self, name='General', model='GM', vehicle_type=None):
-    self.name = name
-    self.model = model
-    self.vehicle_type = vehicle_type
-    self.speed = 0
+#Main class
+class Account(object):
+    def __init__(self, holder, number, balance,credit_line=2000): 
+        self.Holder = holder 
+        self.Number = number 
+        self.Balance = balance
+        self.CreditLine = credit_line
+    #Deposit method
+    def deposit(self, amount): 
+        self.Balance = amount
+    #Withdraw method
+    def withdraw(self, amount): 
+        if(self.Balance - amount < -self.CreditLine):
+            return False  
+        else: 
+            self.Balance -= amount 
+            return True
+    #Return balance
+    def balance(self): 
+        return self.Balance
 
-
-    if self.name in ['Porshe', 'Koenigsegg']:
-      self.num_of_doors = 2
-    else:
-      self.num_of_doors = 4
-
-    if self.vehicle_type == 'trailer':
-      self.num_of_wheels = 8
-    else:
-      self.num_of_wheels = 4
-
-
-  def is_saloon(self):
-    if self.vehicle_type is not 'trailer':
-        self.vehicle_type == 'saloon'
-        return True
-    return False
-
-  def drive(self, moving_speed):
-    if moving_speed == 3:
-      self.speed = 1000
-    elif moving_speed == 7:
-      self.speed = 77
-
-    return self
+    #cash transfer
+    def transfer(self, target, amount):
+        if(self.Balance - amount < -self.CreditLine):
+            return False  
+        else: 
+            self.Balance -= amount 
+            target.Balance += amount 
+            return True
