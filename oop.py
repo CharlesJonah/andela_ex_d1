@@ -27,3 +27,14 @@ class Account(object):
             self.Balance -= amount 
             target.Balance += amount 
             return True
+ #This demonstrates inheritance       
+class MinimumBalanceAccount(Account):
+    def __init__(self, minimum_balance):
+        Account.__init__(self)
+        self.minimum_balance = minimum_balance
+
+    def withdraw(self, amount):
+        if self.balance - amount < self.minimum_balance:
+            print 'Cant withdraw. Balance is inadquate'
+        else:
+            Account.withdraw(self, amount)
