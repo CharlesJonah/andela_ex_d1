@@ -24,7 +24,7 @@ class Car(object):
         self.vehicle_type == 'saloon'
         return True
     return False
-  #Check driving state
+  #Check driving state and speed
   def drive(self, moving_speed):
     if moving_speed == 3:
       self.speed = 1000
